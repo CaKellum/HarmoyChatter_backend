@@ -1,0 +1,69 @@
+@startuml "Discord Clone"
+class User {
+    -String id
+    -String name
+    -String username
+    -String authHash
+    -[Communities] communitys
+    -[Users] friends
+    -[Users] blockedUsers
+    +boolean addComunity(String id)
+    +boolean blockUser(String id)
+    +boolean addFriend(String id)
+    +boolean equals(User user)
+}
+class Role {
+    -String id
+    -String name
+    -String color
+    -[Privilage] privilages
+}
+class Member {
+    -String id
+    -User user
+    -String? memberUserName
+    -[Role] roles
+    +boolean memberHasPrivilage(Privilage privilage)
+}
+enum Privilage {
+    "This will be a simple 
+    list of several general 
+    abilities that will assit
+    in management of communities
+    and chats"
+}
+class Community {
+    -String id
+    -Member owner
+    -[Member] members
+    -[Sections] sections
+}
+class CommunitySections {
+    -String id
+    -String name
+    -[CommunityChat] sectionChats
+    -[Roles] authorizedRoles
+}
+class CommunityChat {
+    -String id
+    -String name
+    -[Members] members
+    -[Roles] authorizedRoles
+    -[Message] messages
+    boolean userHasAccess(String id)
+}
+class Chat {
+    -String id
+    -String name
+    -User owner
+    -[Users] chatters
+    -[Messages] messageLog
+    +leaveChat(User user)
+}
+class Message {
+    -String id
+    -User sender
+    -DateTime timeStamp
+    -Message instigatingMessage
+}
+@enduml
