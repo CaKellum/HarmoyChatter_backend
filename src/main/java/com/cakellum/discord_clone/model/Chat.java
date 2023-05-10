@@ -43,10 +43,27 @@ public class Chat {
         return true;
     }
 
+    public Boolean kickMember(long badMemberId) {
+        User badMember = membersList.stream().filter(user -> (user.getUserId() == badMemberId)).findAny().orElse(null);
+        if (badMember == null || !membersList.remove(badMember)) {
+            return false;
+        }
+        return true;
+    }
+
     public Boolean deleteMessage(Message message) {
         if (!chatLog.remove(message)) {
             return false;
         }
         return true;
+    }
+
+    public Boolean isUserMember(long userId) {
+        for (User u : membersList) {
+            if (u.getUserId() == userId) {
+                return true;
+            }
+        }
+        return false;
     }
 }
