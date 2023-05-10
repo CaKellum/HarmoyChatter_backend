@@ -9,7 +9,7 @@ public class User {
 
     @Getter
     @Setter
-    private String userId;
+    private Long userId;
     @Getter
     @Setter
     private String userName;

@@ -8,7 +8,7 @@ public class Message {
 
     @Getter
     @Setter
-    private String messageId;
+    private Long messageId;
     @Getter
     @Setter
     private String content;

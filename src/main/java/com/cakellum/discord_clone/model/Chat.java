@@ -8,13 +8,20 @@ import lombok.*;
 @AllArgsConstructor
 public class Chat {
 
-    @Getter @Setter
+    @Getter
+    @Setter
+    private Long chatId;
+    @Getter
+    @Setter
     private List<Message> chatLog;
-    @Getter @Setter
+    @Getter
+    @Setter
     private User owner;
-    @Getter @Setter
+    @Getter
+    @Setter
     private List<User> membersList;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String title;
 
     public void addMessage(Message newChat) {
@@ -22,7 +29,7 @@ public class Chat {
     }
 
     public Boolean addMember(User newUser) {
-        if(!membersList.contains(newUser)) {
+        if (!membersList.contains(newUser)) {
             membersList.add(newUser);
             return true;
         }
