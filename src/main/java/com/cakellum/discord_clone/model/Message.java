@@ -1,7 +1,5 @@
 package com.cakellum.discord_clone.model;
 
-import org.springframework.web.servlet.FlashMapManager;
-
 import lombok.*;
 
 @NoArgsConstructor

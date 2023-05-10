@@ -21,7 +21,10 @@ public class User {
     private List<User> blockedList;
     @Getter
     @Setter
-    private Community[] communityList;
+    private List<Community> communityList;
+    @Getter
+    @Setter
+    private List<Chat> chats;
 
     public Boolean addFriend(User newFriend) {
         friendList.add(newFriend);
